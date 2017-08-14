@@ -14,7 +14,7 @@ func main() {
 
     g := serv.Group("/short")
     {
-        g.GET("", service.RedirectShort)
+        g.GET("/:id", service.RedirectShort)
         g.POST("", service.GenerateShort)
     }
 
