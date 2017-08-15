@@ -24,7 +24,7 @@ func init() {
 
     conf, err := ini.Load(Config)
     if err != nil {
-        log.Panic("init config error")
+        log.Fatal("init config error")
     }
     Connection = conf.Section(Environment).Key("Connection").String()
 
