@@ -23,8 +23,8 @@ func GenerateShort(context *gin.Context) {
 
         if err != nil {
             context.JSON(200, gin.H{
-                "code": define.StoreError,
-                "body": nil,
+                "code": define.SystemErrorCode,
+                "body": define.GenerateApiError,
             })
         } else {
             context.JSON(200, gin.H{
@@ -34,8 +34,8 @@ func GenerateShort(context *gin.Context) {
         }
     } else {
         context.JSON(200, gin.H{
-            "code": define.SystemError,
-            "body": nil,
+            "code": define.SystemErrorCode,
+            "body": define.SystemError,
         })
     }
 }
@@ -46,8 +46,8 @@ func RedirectShort(context *gin.Context) {
     url, err := engine.GetUrl(id)
     if err != nil {
         context.JSON(200, gin.H{
-            "code": define.GetError,
-            "body": nil,
+            "code": define.SystemErrorCode,
+            "body": define.RedirectApiError,
         })
     } else {
         context.Redirect(302, url)

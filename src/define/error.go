@@ -4,6 +4,6 @@ import "errors"
 
 var (
     SystemError = errors.New("system error")
-    StoreError = errors.New("store url error")
-    GetError = errors.New("get short url error")
+    GenerateApiError = errors.New("generate api error")
+    RedirectApiError = errors.New("redirect api error")
 )
