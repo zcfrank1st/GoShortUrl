@@ -5,7 +5,7 @@ import (
     "define"
 )
 
-var engine *define.MysqlEngine
+var engine define.Engine // interface is just a pointer
 
 func init () {
     engine = &define.MysqlEngine{}

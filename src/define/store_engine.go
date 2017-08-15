@@ -4,7 +4,7 @@ import "log"
 
 type Engine interface {
     GetUrl(id int) (string, error)
-    StoreUrl(url string) (int, error)
+    StoreUrl(url string) (int64, error)
 }
 
 type MysqlEngine struct {}
