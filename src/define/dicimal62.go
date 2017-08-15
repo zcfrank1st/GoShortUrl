@@ -44,7 +44,7 @@ func init () {
 //}
 
 func makeRandomDict() map[int64]string {
-    var dict map[int64]string
+    dict := make(map[int64]string)
     for i:=0 ; i<62; i++ {
         dict[int64(i)] = number_62[randomIndex[i]]
     }
