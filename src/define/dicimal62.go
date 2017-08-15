@@ -8,7 +8,7 @@ import (
 var (
     number_62 []string
 
-    dict map[int]string
+    dict map[int64]string
 
     randomIndex []int
 )
@@ -44,16 +44,16 @@ func init () {
 //}
 
 func makeRandomDict() map[int64]string {
-    dict := make(map[int64]string)
+    d := make(map[int64]string)
     for i:=0 ; i<62; i++ {
-        dict[int64(i)] = number_62[randomIndex[i]]
+        d[int64(i)] = number_62[randomIndex[i]]
     }
-    return dict
+    return d
 }
 
 func To62(i int64) string {
     trans := []string{}
-    dict := makeRandomDict()
+    dict = makeRandomDict()
     for i >= 62 {
         trans = append([]string{dict[i % 62]}, trans...)
         i = i / 62
@@ -62,11 +62,11 @@ func To62(i int64) string {
     return strings.Join(trans, "")
 }
 
-func ToDecimal(symbol string) int{
+func ToDecimal(symbol string) int64{
     bytes := []byte(symbol)
     length :=len(bytes)
 
-    var sum int
+    var sum int64
     for i:=0; i<length; i++ {
         tok := string(bytes[length - i - 1])
         sum += value2key(tok) * pow62(i)
@@ -74,14 +74,14 @@ func ToDecimal(symbol string) int{
     return sum
 }
 
-func value2key(value string) int {
-    n := make(map[string]int)
+func value2key(value string) int64 {
+    n := make(map[string]int64)
     for k, v := range dict {
         n[v] = k
     }
     return n[value]
 }
 
-func pow62(i int) int{
-    return (int)(math.Pow(62, float64(i)))
+func pow62(i int) int64{
+    return (int64)(math.Pow(62, float64(i)))
 }
