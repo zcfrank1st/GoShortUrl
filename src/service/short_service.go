@@ -5,7 +5,7 @@ import (
     "define"
 )
 
-var engine define.Engine
+var engine *define.MysqlEngine
 
 func init () {
     engine = &define.MysqlEngine{}
