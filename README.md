@@ -11,3 +11,10 @@ GoShortUrl
 
 
 > short url generate service
+
+
+### Licence
+
+MIT
+
+P.S. can change different storage engine by implementing `Engine` interface
