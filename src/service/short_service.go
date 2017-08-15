@@ -23,7 +23,7 @@ func GenerateShort(context *gin.Context) {
 
         if err != nil {
             context.JSON(200, gin.H{
-                "code": define.SystemError,
+                "code": define.StoreError,
                 "body": nil,
             })
         } else {
@@ -46,7 +46,7 @@ func RedirectShort(context *gin.Context) {
     url, err := engine.GetUrl(id)
     if err != nil {
         context.JSON(200, gin.H{
-            "code": define.SystemError,
+            "code": define.GetError,
             "body": nil,
         })
     } else {
