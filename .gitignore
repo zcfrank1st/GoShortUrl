@@ -1,6 +1,6 @@
 .idea/
 bin/
-package/
+pkg/
 *.lock
 *.iml
 vendor
