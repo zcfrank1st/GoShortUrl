@@ -43,10 +43,10 @@ func init () {
 //    fmt.Printf("origin: %d \n", toDecimal(value))
 //}
 
-func makeRandomDict() map[int]string {
-    dict = make(map[int]string)
+func makeRandomDict() map[int64]string {
+    var dict map[int64]string
     for i:=0 ; i<62; i++ {
-        dict[i] = number_62[randomIndex[i]]
+        dict[int64(i)] = number_62[randomIndex[i]]
     }
     return dict
 }
@@ -55,10 +55,10 @@ func To62(i int64) string {
     trans := []string{}
     dict := makeRandomDict()
     for i >= 62 {
-        trans = append([]string{dict[int(i % 62)]}, trans...)
+        trans = append([]string{dict[i % 62]}, trans...)
         i = i / 62
     }
-    trans = append([]string{dict[int(i)]}, trans...)
+    trans = append([]string{dict[i]}, trans...)
     return strings.Join(trans, "")
 }
 
